@@ -11,6 +11,8 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - frontend
   certbot:
     image: certbot/certbot
     restart: always
@@ -18,3 +20,22 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  mongo:
+    image: "mongo"
+    environment:
+      - MONGO_INITDB_DATABASE=green_berlin
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=hdjAAfHEJHwZEwQ9XbuowdRX014LYGNG
+    volumes:
+      - ./data/mongo/:/data/db
+    networks:
+      - backend
+  app:
+    build: ./srv
+    networks:
+      - backend
+      - frontend
+
+networks:
+  frontend:
+  backend:

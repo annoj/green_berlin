@@ -1,0 +1,8 @@
+/data/
+/dev/mongo/
+/srv/bin/
+/srv/include/
+/srv/lib/
+/srv/lib64
+/srv/__pycache__/
+/srv/share/
