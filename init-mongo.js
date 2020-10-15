@@ -8,3 +8,14 @@ db.createUser({
 		}
 	]
 })
+
+db.createUser({
+	user: 	"api",
+	pwd: 	"yj7ZafiDPUN27QacNcHkLwBxgCpWV0GN",
+	roles: 	[
+		{
+			role: 	"readWrite",
+			db: 	"green_berlin"
+		}
+	]
+})

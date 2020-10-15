@@ -1,21 +1,21 @@
 db.createUser({
-	user: 	"admin",
-	pwd: 	"mongo_admin_pass",
+	user: 	"ingest",
+	pwd: 	"fPyRA2yT2vIfVvBWBQMhUnnmrqBO1nwK",
 	roles: 	[
 		{
 			role: 	"readWrite",
-			db: 	"green_berlin_dev"
+			db: 	"green_berlin"
 		}
 	]
 })
 
 db.createUser({
-	user: 	"test_data",
-	pwd: 	"test_data_pass",
+	user: 	"api",
+	pwd: 	"yj7ZafiDPUN27QacNcHkLwBxgCpWV0GN",
 	roles: 	[
 		{
 			role: 	"readWrite",
-			db: 	"green_berlin_dev"
+			db: 	"green_berlin"
 		}
 	]
 })
