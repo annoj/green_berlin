@@ -28,6 +28,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=hdjAAfHEJHwZEwQ9XbuowdRX014LYGNG
     volumes:
       - ./data/mongo/:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - backend
   app:
